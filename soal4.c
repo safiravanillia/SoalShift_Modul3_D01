@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <pthread.h>
 
 void * thread_fakt(void *);
