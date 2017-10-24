@@ -5,9 +5,10 @@ void * thread_fakt(void *);
 
 int main() {
     int num1,num2,num3,count;
+    char run[13];
     pthread_t tid1,tid2,tid3;
-    printf("./faktorial ");
-    scanf("%d %d %d",&num1, &num2,&num3);
+    //printf("./faktorial ");
+    scanf("%s %d %d %d",run, &num1, &num2,&num3);
 
     pthread_create(&tid1,NULL,thread_fakt,(void *)&num3);
     pthread_create(&tid2,NULL,thread_fakt,(void *)&num2);
