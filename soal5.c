@@ -33,13 +33,13 @@ void *thread_ifah(void *argv) {
 
    fileIn = fopen("novel.txt", "r");
    while((read = getline(&line, &len, fileIn)) != -1) {
-     if (strstr(line, *ifah) != NULL) {
+     if (strstr(line, ifah[5]) != NULL) {
        count++;
      }
    }
    fclose(fileIn);
 
-   printf("Ifah : %d\n", count);
+   printf("%s : %d\n",ifah[5], count);
    //status = 1;
    //return NULL;
 }
