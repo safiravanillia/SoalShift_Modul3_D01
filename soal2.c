@@ -11,6 +11,20 @@ int nomor;
 int kotakp1[16],kotakp2[16],poin1=0,poin2=0;
 char pemain1[100],pemain2[100];	
 int inisial1,inisial2;
+
+
+
+void cekbomb(){
+	int cek1=0,cek2=0;
+	for(int i=0;i<15;i++){
+		if(kotakp1[i]==1){cek1++;}
+		if(kotakp2[i]==2){cek2++;}
+		if(cek1 ==15 || cek2==15){exit(1);}
+	}
+}
+
+
+
 void* player1(void *arg)
 { 
  
@@ -31,8 +45,9 @@ void* player1(void *arg)
 			poin1+=1;
 			printf("tidak ada bomb pada lubang ke %d\n",tebak1);
 		}
+		if(poin1>10 || poin2>10){printf("total poin %s = %d \ntotal poin %s = %d\n",pemain1,poin1,pemain2,poin2);exit(1);}
 	}
-	printf("total poin %s = %d \ntotal poin %s = %d\n",pemain1,poin1,pemain2,poin2);
+	printf("total poin %s = %d \ntotal poin %s = %d\n",pemain1,poin1,pemain2,poin2);cekbomb();
 	printf("\n---------------------------------\n");
 	printf("\n\n");
 }
@@ -56,8 +71,11 @@ void* player1(void *arg)
 	printf("\n---------------------------------\n");
 	printf("\n\n");
 	 n++;
+	if(poin1>10 || poin2>10){printf("total poin %s = %d \ntotal poin %s = %d\n",pemain1,poin1,pemain2,poin2);exit(1);}
     status = 1;
+
  }
+	 cekbomb();
     return NULL;
 }
 
@@ -81,19 +99,11 @@ void* player2(void *arg)
 			poin2+=1;
 			printf("tidak ada bomb pada lubang ke %d\n",tebak2);
 		}
+		if(poin1>10 || poin2>10){printf("total poin %s = %d \ntotal poin %s = %d\n",pemain1,poin1,pemain2,poin2);exit(1);}
 	}
-	printf("total poin %s = %d \ntotal poin %s = %d\n",pemain1,poin1,pemain2,poin2);
+	printf("total poin %s = %d \ntotal poin %s = %d\n",pemain1,poin1,pemain2,poin2);cekbomb();
 	printf("\n---------------------------------\n");
 	printf("\n\n");
-
-
-
-
-
-
-
-
-
 
 
 
@@ -116,19 +126,20 @@ void* player2(void *arg)
 		}
 	printf("\n---------------------------------\n");
 	printf("\n\n"); 
-
+	if(poin1>10 || poin2>10){printf("total poin %s = %d \ntotal poin %s = %d\n",pemain1,poin1,pemain2,poin2);exit(1);}
 	status=0;
 	}
- 
+  cekbomb();
+    return NULL;
 }
  
-int main(void)
+int main()
 {	
 	 
 	memset(kotakp1,0,sizeof(kotakp1));
 	memset(kotakp2,0,sizeof(kotakp2));
     int i=0;
-
+cekbomb();
 	printf("masukan nama pemain 1 = ");
   	scanf("%s",pemain1);
 	printf("masukan nama pemain 2 = ");
@@ -142,7 +153,7 @@ int main(void)
     pthread_create(&(tid2), NULL, &player2, (void*)pemain2);
  pthread_join(tid1, NULL);
     pthread_join(tid2, NULL);
-     
+     printf("jumlah i = %d\n",i);
  }
 
     return 0;
