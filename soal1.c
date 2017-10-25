@@ -26,7 +26,7 @@ void* buygun(void *arg){
 			jml[senjatake]-=jumlahsenjata;
 			printf("%s memiliki %d\n\n", str[senjatake],jml[senjatake]);
 		}	
-		else{printf("stok senjata hanya tinggal %d\n\n",jml[senjatake]);}
+		else{printf("barang di stock tidak cukup\n");}
 	}
 
 return NULL;
@@ -97,4 +97,3 @@ int sekali=0,is;
 		 
 	}   
 }
-
