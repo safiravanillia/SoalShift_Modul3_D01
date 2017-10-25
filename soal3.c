@@ -35,18 +35,20 @@ void* cekk(void *arg){
 		 
 		printf("lohan = %d\n",lohan);
 		printf("kepiting = %d\n",kepiting);
- 		sleep(3);
-		lohan-=10;
-		kepiting-=10;
-		 
+		if (lohan){
+ 			sleep(10);
+			lohan-=15;
+		}
+
+		if (kepiting){
+			sleep (20);
+			kepiting-=10;
+		}
 		system("clear");
-		 
 	}
 printf("game over");
 exit(1);
 }
-
-
 
 int main(){
 char makan[100],hewan[100];
@@ -67,4 +69,3 @@ printf("kolam ikan lohan dan kepiting\n1.input -makan kepiting- atau -makan loha
 		pthread_join(tid[0],NULL);
    		pthread_join(tid[1],NULL);
 }
-
