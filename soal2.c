@@ -9,22 +9,27 @@ pthread_t tid2;
 int status;
 int nomor;
 int kotakp1[16],kotakp2[16];
-memset(kotakp1,0,sizeof(kotakp1));
-memset(kotakp2,0,sizeof(kotakp2));
+ 
 
 void* player1(void *arg)
-{
+{int inisial1=0;
     status = 0;
- 
+	for(int i=0;i<16;i++){
+		printf("%d",kotakp1[i]);		
+		}
+ 	printf("player1's turn");
+	printf("plant a MINE, in hole number = ");
+	
    //program
+     
     status = 1;
  
-    return NULL;a
+    return NULL;
 }
 
 
 void* player2(void *arg)
-{
+{int inisial2=0;
     while(status = 0){}
  //program
 }
@@ -32,13 +37,15 @@ void* player2(void *arg)
 int main(void)
 {	
 	char pemain1[100],pemain2[100];	
+	memset(kotakp1,0,sizeof(kotakp1));
+	memset(kotakp2,0,sizeof(kotakp2));
     int i=0;
-    while(i<32){
+    while(1){
 	printf("masukan nama pemain 1 = ");
   	scanf("%s",pemain1);
 	printf("masukan nama pemain 2 = ");
 	scanf("%s",pemain2);
-	prinf("\n");
+	printf("\n");
 	system("clear");
 	printf("selamat datang pemain1 %s\nselamat datang pemain2%s\n",pemain1,pemain2);
 
