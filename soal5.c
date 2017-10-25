@@ -21,22 +21,20 @@ int main(){
 void *thread_cari(void *argv) {
    char *cari[5];
    cari[5]=(char*)argv;
-   
+
    FILE *fileIn;
-   
-   int count=0;
-   char *line = NULL;
-   size_t len = 0;
-   ssize_t read;
+   int count = 0;
+   char temp[1000];
 
    fileIn = fopen("novel.txt", "r");
-   while((read = getline(&line, &len, fileIn)) != -1) {
-     if (strstr(line, cari[5]) != NULL) {
-       count++;
-     }
+
+   while(fgets(temp, 1000, fileIn) != NULL) {
+	if((strstr(temp, cari[5])) != NULL) {
+		count++;
+	}	
    }
-   printf("%s : %d\n",cari[5], count);
-   fclose(fileIn);   
-   
+   printf("%s : %d\n", cari[5], count);
+
+   fclose(fileIn);
    return 0;
 }
