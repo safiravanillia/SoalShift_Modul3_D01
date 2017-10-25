@@ -8,28 +8,25 @@ pthread_t tid1;
 pthread_t tid2;
 int status;
 int nomor;
- 
-void* tulis(void *arg)
+int kotakp1[16],kotakp2[16];
+memset(kotakp1,0,sizeof(kotakp1));
+memset(kotakp2,0,sizeof(kotakp2));
+
+void* player1(void *arg)
 {
     status = 0;
  
-    printf("Masukan nomor ");
-    scanf("%d", &nomor);
- 
+   //program
     status = 1;
  
-    return NULL;
+    return NULL;a
 }
 
 
-void* baca(void *arg)
+void* player2(void *arg)
 {
-    while(status != 1)
-    {
-
-    }
-
-    printf("Nomor %d\n", nomor);
+    while(status = 0){}
+ //program
 }
  
 int main(void)
@@ -41,10 +38,12 @@ int main(void)
   	scanf("%s",pemain1);
 	printf("masukan nama pemain 2 = ");
 	scanf("%s",pemain2);
-	
+	prinf("\n");
+	system("clear");
+	printf("selamat datang pemain1 %s\nselamat datang pemain2%s\n",pemain1,pemain2);
 
-    pthread_create(&(tid1), NULL, &player1, void);
-    pthread_create(&(tid2), NULL, &player2, NULL);
+    pthread_create(&(tid1), NULL, &player1, (void*)pemain1);
+    pthread_create(&(tid2), NULL, &player2, (void*)pemain2);
  
     pthread_join(tid1, NULL);
     pthread_join(tid2, NULL);
