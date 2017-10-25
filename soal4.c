@@ -7,12 +7,12 @@ void * thread_fakt(void *);
 int main() {
     int num,count,i;
     char run[13];
-    pthread_t tid1,tid2,tid3;
+    pthread_t tid;
     scanf("%s", run);
 
     while(scanf("%d", &num) != EOF) {
-    pthread_create(&tid1,NULL,thread_fakt,(void *)&num);
-    pthread_join(tid1, NULL);
+    pthread_create(&tid,NULL,thread_fakt,(void *)&num);
+    pthread_join(tid, NULL);
     }
     return 0;
 }
