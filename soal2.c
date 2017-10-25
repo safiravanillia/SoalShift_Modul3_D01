@@ -14,19 +14,20 @@ int inisial1,inisial2;
 void* player1(void *arg)
 { 
     if(status == 0){
-	printf("selamat datang pemain1 %s\nselamat datang pemain2 %s\n-----------------------------------\n",pemain1,pemain2);
-	/*printf("%s's as player1 turn\nthis is you land mine\n",pemain1);
+	printf("%s's turn as player1  \nthis is you land mine\n",pemain1);
 	for(int i=0;i<16;i++){
 		printf("%d ",kotakp1[i]);		
 		}
 	printf("\nplant a MINE, in hole number = ");
 	scanf("%d", &inisial1);
-	kotakp1[inisial1]=1;
-   //program
-     system("clear");*/
-	printf("player1 = ");
-	scanf("%d",&a);
-	printf("huuhuhuh\n");
+	kotakp1[inisial1]=1; 
+	printf("now this is your land mine \n");
+	for(int i=0;i<16;i++){
+		printf("%d ",kotakp1[i]);		
+		}
+	printf("\n---------------------------------\n");
+	printf("\n\n");
+	 
     status = 1;
  }
     return NULL;
@@ -38,17 +39,21 @@ void* player2(void *arg)
     
 
 	if(status==1){
-	printf("selamat datang pemain1 %s\nselamat datang pemain2 %s\n-----------------------------------\n",pemain1,pemain2);
-	printf("player2 = ");
-	scanf("%d",&b);
-	printf("hehe\n");
-	/*printf("%s's as player2 turn\nthis is you land mine\n",pemain2);
+	
+	printf("%s's turn as player2  \nthis is you land mine\n",pemain2);
 	for(int i=0;i<16;i++){
 		printf("%d ",kotakp2[i]);		
 		}
 	printf("\nplant a MINE, in hole number = ");
 	scanf("%d", &inisial2);
-	kotakp2[inisial2]=1;*/
+	kotakp2[inisial2]=1;
+	printf("now this is your land mine \n");
+	for(int i=0;i<16;i++){
+		printf("%d ",kotakp1[i]);		
+		}
+	printf("\n---------------------------------\n");
+	printf("\n\n"); 
+
 	status=0;
 	}
  
